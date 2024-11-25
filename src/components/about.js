@@ -10,6 +10,11 @@ const About = ()=>{
             <p>Our redesigned identity is accompanied by a renewed commitment to providing outstanding customer service.Our team is here to enhance your shopping experience at every turn, offering anything from personalised styling to expert advice on the latest styles.</p>
             <br></br>
             <p>What's the delay? HIT US A DM TODAY!</p>
+            <a href="https://www.instagram.com/japlugs_/profilecard/#" target="_blank" rel="nooneopener noreferrer">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="instagram" style={{ width: '40px', height: '40px',cursor: 'pointer',
+              transition: 'transform 0.2s', }}
+            />
+            </a>
         </div>
     );
 }
