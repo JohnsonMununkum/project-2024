@@ -8,7 +8,6 @@ const NavBar = () => {
             <Container>
                 <Navbar.Brand href="/">JA Plugs</Navbar.Brand>
                 <Nav className="navbar">
-                    <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="/about">About</Nav.Link>
                 </Nav>
             </Container>
