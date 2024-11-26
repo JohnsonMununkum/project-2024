@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 //acessing data through props.myporduct
+//link to the cart page
 function SingleProduct(props){
     useEffect(() => {
         console.log("Product", props.myproduct);
@@ -20,6 +22,7 @@ function SingleProduct(props){
 
                     </blockquote>
                 </Card.Body>
+                <Link className="btn to-edit" to={"/" +props.myproduct.productID}>Add to Cart</Link>
             </Card>
         </div>
     );

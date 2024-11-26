@@ -19,18 +19,25 @@ app.use(function(req, res, next) {
     app.use(bodyParser.json());
 
   //connecting mongoose to server.js
- // const mongoose = require('mongoose');
-//mongoose.connect('my_db_connection_string');
+   /* const mongoose = require('mongoose');
+    mongoose.connect('mongodb+srv://Admin:Admin@admin.hk6jv.mongodb.net/');
 
+  //data model
+  const productSchema = new mongoose.Schema({
+    title: String,
+    price: Number,
+    ProductInfo: String,
+    PictureImage: String
+  });
 
+  const Product = mongoose.model('Product', productSchema);
+
+*/
 
 app.get('/', (req, res) =>{
     res.send("running on por 4000");
 });
 
-/*app.get('/hello/:name/:lname', (req, res)=>{
-    res.send("Hello "+req.params.name+" "+req.params.lname);
-})*/
 
 app.get('/api/products', (req, res) => {
     const products = [
@@ -85,6 +92,22 @@ app.get('/api/products', (req, res) => {
     ];
     res.json({ products });
 });
+
+   /* app.post('/api/products', async (req, res) => {
+
+        const {title, price, productInfo, pictureImage} = req.body;
+
+        const newProduct = new Product({title, price, productInfo, pictureImage});
+        await newProduct.save();
+
+        res.status(201).json({ message:})
+    })*/
+
+        //get products
+     /*   app.get('/api/products', async (req, res) => {
+            const products = await Product.find({});
+            res.json(products);
+        });*/
 
 //error handling to catch server errors
 app.use((err, req, res, next) => {
