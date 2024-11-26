@@ -1,7 +1,10 @@
+import Footer from "./Footer";
+import Header from "./Header";
+
 const About = ()=>{
     return(
         <div>
-            <h1>Welcome to JA Plugs!</h1>
+            <Header />
             <p>Your local streetwear & designer plug.<br></br>
                 Our priority & aim is to keep our clients in the freshest apparel!</p>
             <br></br>
@@ -11,9 +14,7 @@ const About = ()=>{
             <br></br>
             <p>What's the delay? HIT US A DM TODAY!</p>
             <a href="https://www.instagram.com/japlugs_/profilecard/#" target="_blank" rel="nooneopener noreferrer">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="instagram" style={{ width: '40px', height: '40px',cursor: 'pointer',
-              transition: 'transform 0.2s', }}
-            />
+           <Footer />
             </a>
         </div>
     );
