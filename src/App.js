@@ -9,16 +9,18 @@ import NavBar from './components/NavBar';
 import About from './components/about';
 import Home from './components/home';
 import Cart from './components/cart';
+import Login from './components/Login';
 
 function App() {
+  
   return (
     <Router>
       <NavBar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Login />} />
         <Route path="/about" element={<About />} />
         <Route path="/cart" element={<Cart />} />
-
+        <Route path="/home" element={<Home />} />
       </Routes>
     </Router>
   );
