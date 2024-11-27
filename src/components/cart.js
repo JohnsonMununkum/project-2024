@@ -1,5 +1,6 @@
+//import useState
+//useState used to store & update data 
 import { useState } from "react";
-import SingleProduct from "./singleproduct";
 
 const Cart = ()=>{
    const [cartItems, setCartItems] = useState([]);
@@ -8,6 +9,8 @@ const Cart = ()=>{
     setCartItems((prevItems) => [...prevItems, product]);
 };
 
+//printing out what is in my cart
+//not yet finished
 return (
     <div>
         <h1>Bag</h1>

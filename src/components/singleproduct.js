@@ -1,6 +1,7 @@
 import { useEffect , useState } from "react";
 import { Card , Button} from "react-bootstrap";
 import { Link } from "react-router-dom";
+//modal essentially just a pop up that appears
 import { Modal } from "react-bootstrap";
 
 //acessing data through props.myporduct
@@ -14,11 +15,13 @@ function SingleProduct(props){
     }, [props.myproduct]);
 
     const handleAddToCart = () => {
-        setShowModal(true); // Show the modal
+        // Show the modal
+        setShowModal(true); 
     };
 
     const handleCloseModal = () => {
-        setShowModal(false); // Close the modal
+        // Close the modal
+        setShowModal(false); 
     };
 
 
@@ -35,6 +38,7 @@ function SingleProduct(props){
 
                     </blockquote>
                 </Card.Body>
+                {/* modal appears when the click add to cart button */}
                 <Button className="btn to-edit"  onClick={handleAddToCart}>Add to Cart</Button>
             </Card>
 
@@ -46,9 +50,11 @@ function SingleProduct(props){
                     <p>Your product has been added to the cart. What would you like to do next?</p>
                 </Modal.Body>
                 <Modal.Footer>
+                    {/* modal closes when the click continue shooping */}
                     <Button variant="secondary" onClick={handleCloseModal}>
                         Continue Shopping
                     </Button>
+                     {/* modal closes & directs user to the cart page */}
                     <Link to="/cart" className="btn to-edit">
                         Go to Cart
                     </Link>

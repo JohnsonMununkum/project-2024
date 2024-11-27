@@ -63,6 +63,18 @@
     background-color: transparent;
 }
 
+.input {
+   width: "100%";
+    padding: "10px";
+     margin: "5px 0";
+}
+
+.loginbtn{
+  padding: "10px 20px";
+}
+
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

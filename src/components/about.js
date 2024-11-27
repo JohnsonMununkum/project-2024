@@ -1,5 +1,8 @@
+//importing components
 import Footer from "./Footer";
 import Header from "./Header";
+//header message comes from header.js same with footer footer.js
+//link to instagram page
 
 const About = ()=>{
     return(

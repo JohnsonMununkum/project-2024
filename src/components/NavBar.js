@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { useNavigate } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({ isAuthenticated }) => {
     const navigate = useNavigate();
 
     return (

@@ -1,7 +1,9 @@
+//import products
 import Products from "./product";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+//using axios for calling my api
 const Home = () => {
     
     const [products, setProducts] = useState([]);

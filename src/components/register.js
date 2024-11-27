@@ -1,48 +1,54 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-//useNavigate is used to navigate to a page depending on the condition 
-//here say register is successful & login
-const Login = ({setIsAuthenticated}) => {
+
+//useState to hold the data of these variables
+const Register = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [name, setName] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
-    const handleLogin = (e) => {
+    const handleRegister = (e) => {
         e.preventDefault();
 
-        // Basic validation
-        if (!email || !password) {
-            setError("Email and Password are required");
+        // have to enter all fields
+        if (!name || !email || !password) {
+            setError("All fields are required");
             return;
         }
 
-        //using localStorage to store the user details
-        const userDetails = JSON.parse(localStorage.getItem("userDetails"));
-
-        // Validate email format
+        //correct email format
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
             setError("Invalid email format");
             return;
         }
 
-        //checking to see if details match
-        if (!userDetails || userDetails.email !== email || userDetails.password !== password) {
-            setError("Invalid email or password");
-            return;
-        }
-
-        // Authentication successful
-        setIsAuthenticated(true);
+        // Save user details to localStorage (Mock Database)
+        const userDetails = { name, email, password };
+        localStorage.setItem("userDetails", JSON.stringify(userDetails));
         setError("");
-        navigate("/home");
+
+        // Redirect to login page
+        console.log("Registration successful! Please log in.");
+        navigate("/login"); 
     };
 
+    //inputs for name, email & password
     return (
         <div style={{ margin: "50px auto", maxWidth: "400px", textAlign: "center" }}>
-            <h1>Login</h1>
-            <form onSubmit={handleLogin}>
+            <h1>Register</h1>
+            <form onSubmit={handleRegister}>
+                <div style={{ marginBottom: "15px" }}>
+                    <label>Name:</label>
+                    <input className="input"
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        style={{ width: "100%", padding: "10px", margin: "5px 0" }}
+                    />
+                </div>
                 <div style={{ marginBottom: "15px" }}>
                     <label>Email:</label>
                     <input
@@ -63,12 +69,11 @@ const Login = ({setIsAuthenticated}) => {
                 </div>
                 {error && <p style={{ color: "red" }}>{error}</p>}
                 <button type="submit" style={{ padding: "10px 20px" }}>
-                    Login
+                    Register
                 </button>
             </form>
         </div>
     );
 };
 
-export default Login;
-
+export default Register;
