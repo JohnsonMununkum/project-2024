@@ -9,6 +9,9 @@ const NavBar = () => {
     return (
         <Navbar bg="dark" data-bs-theme="dark">
             <Container>
+                {/* Back Button  
+                    onClick={() => navigate(-1)} takes the user back to the previous page*/}
+                <button onClick={() => navigate(-1)} className="backbtn">Back</button>
                 <Navbar.Brand onClick={() => navigate("/home")}
                  style={{ cursor: "pointer", color: "white" }}
                     >JA Plugs</Navbar.Brand>
