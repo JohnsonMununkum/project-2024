@@ -27,7 +27,7 @@ return (
           <label>Add shoe: </label>
           <input type="text"
             className="form-control"
-            value={title}
+            value={shoe}
             onChange={(e) => { setShoe(e.target.value) }}
           />
         </div>
@@ -36,7 +36,7 @@ return (
           <label>Add offer price for shoes: </label>
           <input type="text"
             className="form-control"
-            value={title}
+            value={price}
             onChange={(e) => { setPrice(e.target.value) }}
           />
         </div>
@@ -45,7 +45,7 @@ return (
           <label>Add pricture of shoe: </label>
           <input type="text"
             className="form-control"
-            value={title}
+            value={pictureImage}
             onChange={(e) => { setPictureImage(e.target.value) }}
           />
         </div>
