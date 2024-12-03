@@ -3,32 +3,55 @@
 import { useState } from "react";
 
 const Cart = ()=>{
-   const [cartItems, setCartItems] = useState([]);
+    const [shoe, setShoe] = useState('');
+    const [price, setPrice] = useState('');
+    const [pictureImage, setPictureImage] = useState('');
 
-   const addToCart = (product) => {
-    setCartItems((prevItems) => [...prevItems, product]);
-};
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const shoes = {shoe,price,pictureImage};
+        console.log(shoes);
 
-//printing out what is in my cart
-//not yet finished
+        axios.post('http://localhost:4000/api/products',shoes)
+        .then((res)=>{console.log(res.data)})
+        .catch();
+      }
+
+      //asking what user wants to add to the cqrt
 return (
     <div>
-        <h1>Bag</h1>
-        {cartItems.length === 0 ? (
-            <p>Your Bag is empty!</p>
-        ) : (
-            cartItems.map((product, index) => (
-                <div key={index} style={{ borderBottom: "1px solid #ddd", padding: "10px 0" }}>
-                    <h2>{product.Title}</h2>
-                    <img src={product.PictureImage} alt={product.Title} style={{ width: "100px" }} />
-                    <p>{product.ProductInfo}</p>
-                    <p>Price: {product.Price}</p>
-                </div>
-            ))
-        )}
+      <h2>Bag</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>Add shoe: </label>
+          <input type="text"
+            className="form-control"
+            value={title}
+            onChange={(e) => { setShoe(e.target.value) }}
+          />
+        </div>
 
+        <div className="form-group">
+          <label>Add offer price for shoes: </label>
+          <input type="text"
+            className="form-control"
+            value={title}
+            onChange={(e) => { setPrice(e.target.value) }}
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Add pricture of shoe: </label>
+          <input type="text"
+            className="form-control"
+            value={title}
+            onChange={(e) => { setPictureImage(e.target.value) }}
+          />
+        </div>
+        <input type="submit" value="Add Shoe" />
+      </form>
     </div>
-);
+  );
 }
 
 export default Cart;
