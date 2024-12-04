@@ -8,12 +8,15 @@ import NavBar from './components/NavBar';
 //importing pages
 import About from './components/about';
 import Home from './components/home';
-import Cart from './components/cart';
+import UserAddingtoCart from './components/userAddingtoCart.js';
 import Login from './components/Login';
 import Register from './components/register';
 import Logout from './components/logout.js';
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
+//import UserAddingtoCart from './components/userAddingtoCart.js';
+import UserGuide from './components/userGuide.js';
+import Cart from './components/cart.js';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -37,6 +40,8 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/home" element={<Home />} />
         <Route path="/logout" element={<Logout setIsAuthenticated={setIsAuthenticated} />}/>
+        <Route path="/userAddingtoCart" element={<UserAddingtoCart/>} />
+        <Route path="userGuide" element={<UserGuide/>} />
       </Routes>
     </Router>
   );

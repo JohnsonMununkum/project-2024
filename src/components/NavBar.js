@@ -16,9 +16,11 @@ const NavBar = ({ isAuthenticated }) => {
                  style={{ cursor: "pointer", color: "white" }}
                     >JA Plugs</Navbar.Brand>
                 <Nav className="navbar">
-                     <Nav.Link href="/cart">Cart</Nav.Link>
+                    <Nav.Link href="/Cart">Cart</Nav.Link>
                     <Nav.Link href="/about">About</Nav.Link>
                     <Nav.Link href="/logout">Logout</Nav.Link>
+                    <Nav.Link href="/userAddingtoCart">UserAddingToCart</Nav.Link>
+                    <Nav.Link href="/userGuide">User Guide</Nav.Link>
                 </Nav>
             </Container>
         </Navbar>

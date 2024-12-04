@@ -55,7 +55,7 @@ function SingleProduct(props){
                         Continue Shopping
                     </Button>
                      {/* modal closes & directs user to the cart page */}
-                    <Link to="/cart" className="btn to-edit">
+                    <Link to="/myCart" className="btn to-edit">
                         Go to Cart
                     </Link>
                 </Modal.Footer>

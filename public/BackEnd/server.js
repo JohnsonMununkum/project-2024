@@ -17,9 +17,9 @@ app.use(function(req, res, next) {
   const bodyParser = require('body-parser');
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
-
+/*
   //connecting mongoose to server.js
-   /* const mongoose = require('mongoose');
+    const mongoose = require('mongoose');
     mongoose.connect('mongodb+srv://Admin:Admin@admin.hk6jv.mongodb.net/');
 
   //data model
@@ -29,10 +29,10 @@ app.use(function(req, res, next) {
     ProductInfo: String,
     PictureImage: String
   });
-
-  const Product = mongoose.model('Product', productSchema);
-
 */
+  const ProductStyle = mongoose.model('Product', productSchema);
+
+
 
 app.get('/', (req, res) =>{
     res.send("running on por 4000");
@@ -93,15 +93,22 @@ app.get('/api/products', (req, res) => {
     res.json({ products });
 });
 
-   /* app.post('/api/products', async (req, res) => {
+/*app.get('/api/products', (req, res) => {
+    res.json({ products });
+});*/
 
-        const {title, price, productInfo, pictureImage} = req.body;
+//handle adding products
+app.post('/api/products', async(req, res) => {
+    const { shoe, price, pictureImage } = req.body; // Expecting these fields from the frontend
 
-        const newProduct = new Product({title, price, productInfo, pictureImage});
-        await newProduct.save();
 
-        res.status(201).json({ message:})
-    })*/
+    // For now, we’ll just log it to the console
+    console.log('Product added:', { shoe, price, pictureImage }); 
+
+    // Responding back to the client
+    res.status(201).json({ message: 'Product added successfully!' });
+});
+
 
         //get products
      /*   app.get('/api/products', async (req, res) => {

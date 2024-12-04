@@ -1,7 +1,7 @@
 import SingleProduct from "./singleproduct";
 
 //map through the products where key = productID
-const Products = (props) =>{
+const Product = (props) =>{
     return props.myProducts.map(
         (product)=>{
             return <SingleProduct myproduct={product} key={product.productID} />
@@ -9,4 +9,4 @@ const Products = (props) =>{
     );
 }
 
-export default Products;
+export default Product;
