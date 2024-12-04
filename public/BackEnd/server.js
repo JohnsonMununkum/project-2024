@@ -30,7 +30,7 @@ app.use(function(req, res, next) {
     PictureImage: String
   });
 */
-  const ProductStyle = mongoose.model('Product', productSchema);
+  //const ProductStyle = mongoose.model('Product', productSchema);
 
 
 
