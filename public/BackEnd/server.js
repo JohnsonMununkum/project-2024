@@ -17,20 +17,21 @@ app.use(function(req, res, next) {
   const bodyParser = require('body-parser');
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
-/*
+
   //connecting mongoose to server.js
     const mongoose = require('mongoose');
-    mongoose.connect('mongodb+srv://Admin:Admin@admin.hk6jv.mongodb.net/');
+   // mongoose.connect('mongodb+srv://Admin:Admin@admin.hk6jv.mongodb.net/mydb');
+   mongoose.connect('mongodb+srv://admin:admin@martinscluster.w5rtkz0.mongodb.net/DB14');
 
   //data model
   const productSchema = new mongoose.Schema({
-    title: String,
+    shoe: String,
     price: Number,
-    ProductInfo: String,
-    PictureImage: String
+    //ProductInfo: String,
+    pictureImage: String
   });
-*/
-  //const ProductStyle = mongoose.model('Product', productSchema);
+
+  const ProductStyle = mongoose.model('Product', productSchema);
 
 
 
@@ -38,8 +39,12 @@ app.get('/', (req, res) =>{
     res.send("running on por 4000");
 });
 
+app.get('/api/products', async (req, res) =>{
+    const products = await ProductStyle.find({});
+    res.status(200).json({products})
+});
 
-app.get('/api/products', (req, res) => {
+/*app.get('/api/products', (req, res) => {
     const products = [
         {
             "Title": "Air Force 1s",
@@ -91,7 +96,7 @@ app.get('/api/products', (req, res) => {
         }
     ];
     res.json({ products });
-});
+});*/
 
 /*app.get('/api/products', (req, res) => {
     res.json({ products });
@@ -100,7 +105,8 @@ app.get('/api/products', (req, res) => {
 //handle adding products
 app.post('/api/products', async(req, res) => {
     const { shoe, price, pictureImage } = req.body; // Expecting these fields from the frontend
-
+    const newMovie = new ProductStyle({shoe, price, pictureImage});
+    await newMovie.save();
 
     // For now, we’ll just log it to the console
     console.log('Product added:', { shoe, price, pictureImage }); 

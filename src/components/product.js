@@ -4,7 +4,7 @@ import SingleProduct from "./singleproduct";
 const Product = (props) =>{
     return props.myProducts.map(
         (product)=>{
-            return <SingleProduct myproduct={product} key={product.productID} />
+            return <SingleProduct myproduct={product} key={product._id} />
         }
     );
 }
