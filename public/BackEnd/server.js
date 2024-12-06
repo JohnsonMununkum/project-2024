@@ -39,10 +39,27 @@ app.get('/', (req, res) =>{
     res.send("running on por 4000");
 });
 
+//retrieve all product data
 app.get('/api/products', async (req, res) =>{
     const products = await ProductStyle.find({});
     res.status(200).json({products})
 });
+
+//handles delete request
+app.put('/api/products/:id', async (req, res) => {
+    let movie = await ProductStyle.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    res.send(products);
+  });
+
+  //handle delete request
+app.delete('/api/products/:id', async (req, res) => {
+  
+  console.log('Deleting product with ID:', req.params.id);
+  const products = await ProductStyle.findByIdAndDelete(req.params.id);
+  res.status(200).send({ message: "Movie deleted successfully", products });
+  
+}
+);
 
 //handle adding products
 app.post('/api/products', async(req, res) => {
