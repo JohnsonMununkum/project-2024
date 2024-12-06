@@ -1,7 +1,5 @@
 //import products
 import Products from "./product";
-import { useEffect, useState } from "react";
-import axios from "axios";
 
 //hard coding products into the main page
 const Home = () => {

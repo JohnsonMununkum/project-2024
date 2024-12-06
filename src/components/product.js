@@ -6,6 +6,7 @@ const Product = (props) =>{
         (product)=>{
             return <SingleProduct myproduct={product} key={product._id} />
         }
+       
     );
 }
 

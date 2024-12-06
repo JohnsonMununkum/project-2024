@@ -15,7 +15,6 @@ import Logout from './components/logout.js';
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 //import UserAddingtoCart from './components/userAddingtoCart.js';
-import UserGuide from './components/userGuide.js';
 import Cart from './components/cart.js';
 
 function App() {
@@ -36,12 +35,11 @@ function App() {
                         )
                     }
                 />
-        <Route path="/about" element={<About />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/userAddingtoCart" element={<UserAddingtoCart/>} />
         <Route path="/home" element={<Home />} />
         <Route path="/logout" element={<Logout setIsAuthenticated={setIsAuthenticated} />}/>
-        <Route path="/userAddingtoCart" element={<UserAddingtoCart/>} />
-        <Route path="userGuide" element={<UserGuide/>} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </Router>
   );

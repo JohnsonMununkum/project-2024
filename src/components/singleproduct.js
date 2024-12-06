@@ -1,8 +1,7 @@
 import { useEffect , useState } from "react";
 import { Card , Button} from "react-bootstrap";
 import { Link } from "react-router-dom";
-//modal essentially just a pop up that appears
-import { Modal } from "react-bootstrap";
+import axios from "axios";
 
 //acessing data through props.myporduct
 //link to the cart page
@@ -14,21 +13,11 @@ function SingleProduct(props){
         console.log("Product", props.myproduct);
     }, [props.myproduct]);
 
-    const handleAddToCart = () => {
-        // Show the modal
-        setShowModal(true); 
-    };
-
-    const handleCloseModal = () => {
-        // Close the modal
-        setShowModal(false); 
-    };
-
-
+    
     return (
         <div>
             <Card>
-                <Card.Header>{props.myproduct.Title}</Card.Header>
+                <Card.Header>{props.myproduct.Title} {props.myproduct.shoe}</Card.Header>
                 <Card.Body>
                     <blockquote className="blockquote mb-0">
                         <img src={props.myproduct.pictureImage} alt={props.myproduct.shoe} className="product-image" />

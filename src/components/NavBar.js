@@ -20,7 +20,6 @@ const NavBar = ({ isAuthenticated }) => {
                     <Nav.Link href="/about">About</Nav.Link>
                     <Nav.Link href="/logout">Logout</Nav.Link>
                     <Nav.Link href="/userAddingtoCart">UserAddingToCart</Nav.Link>
-                    <Nav.Link href="/userGuide">User Guide</Nav.Link>
                 </Nav>
             </Container>
         </Navbar>
