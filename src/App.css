@@ -73,6 +73,35 @@
   padding: "10px 20px";
 }
 
+.delete-button {
+  background-color: transparent;  /* Remove default button background */
+  border: none;                   /* Remove border */
+  color: red;                     /* Change the color of the "X" */
+  font-size: 24px;                /* Make the "X" larger */
+  cursor: pointer;                /* Add a pointer cursor */
+  padding: 5px;                   /* Add some padding for clickability */
+  margin-left: 10px;
+  margin-right: 10px;              /* Move the button a little to the right */
+}
+
+.delete-button:hover {
+  color: darkred;                 /* Change the color on hover */
+  transform: scale(1.2);          /* Add a slight zoom effect on hover */
+}
+
+.delete-button {
+  display: none;  /* Hide by default */
+}
+
+/* Show only on the cart page */
+.cart-page .delete-button {
+  display: block;
+}
+
+.delete-button:focus {
+  outline: none;  /* Remove the focus outline */
+}
+
 
 @keyframes App-logo-spin {
   from {

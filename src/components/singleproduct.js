@@ -2,6 +2,8 @@ import { useEffect , useState } from "react";
 import { Card , Button} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 
 //acessing data through props.myporduct
 //link to the cart page
@@ -27,12 +29,15 @@ const handleDelete = (e) => {
     return (
         <div>
             <Card>
-                <Card.Header>{props.myproduct.Title} {props.myproduct.shoe}</Card.Header>
+                <Card.Header><b>{props.myproduct.shoe}</b> <Button className="delete-button" aria-label="Delete" onClick={handleDelete}>&times;</Button>
+                <Link to={"/edit/" + props.myproduct._id} className="btn btn-primary">Edit</Link>
+
+                </Card.Header>
                 <Card.Body>
                     <blockquote className="blockquote mb-0">
                         <img src={props.myproduct.pictureImage} alt={props.myproduct.shoe} className="product-image" />
                         <footer>{props.myproduct.price}<br></br>
-                                {props.myproduct.ProductInfo}
+                                Quantity: {props.myproduct.quantity}
                                 Product ID: {
                                     props.myproduct._id
                                 }
@@ -40,11 +45,9 @@ const handleDelete = (e) => {
 
                     </blockquote>
                 </Card.Body>
-                {/* modal appears when the click add to cart button */}
-              {/* <Button className="btn to-edit"  onClick={handleAddToCart}>Add to Cart</Button> */}  
+             
             </Card>
              {/* button to click for movie deletetion*/}
-             <Button variant="danger" onClick={handleDelete}>Delete</Button>
           
         </div>
     );

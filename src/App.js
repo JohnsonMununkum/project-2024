@@ -16,6 +16,7 @@ import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 //import UserAddingtoCart from './components/userAddingtoCart.js';
 import Cart from './components/cart.js';
+import Edit from './components/edit.js';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -40,6 +41,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/logout" element={<Logout setIsAuthenticated={setIsAuthenticated} />}/>
         <Route path="/about" element={<About />} />
+        <Route path="/edit/:id" element={<Edit/>}/>
       </Routes>
     </Router>
   );

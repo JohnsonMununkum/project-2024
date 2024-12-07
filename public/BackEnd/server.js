@@ -21,14 +21,16 @@ app.use(function(req, res, next) {
   //connecting mongoose to server.js
     const mongoose = require('mongoose');
    // mongoose.connect('mongodb+srv://Admin:Admin@admin.hk6jv.mongodb.net/mydb');
-   mongoose.connect('mongodb+srv://admin:admin@martinscluster.w5rtkz0.mongodb.net/DB14');
+   //mongoose.connect('mongodb+srv://admin:admin@martinscluster.w5rtkz0.mongodb.net/DB14');
+    mongoose.connect('mongodb+srv://g00419319:admin@project-2024.owuzo.mongodb.net/DBproject');
 
   //data model
   const productSchema = new mongoose.Schema({
     shoe: String,
-    price: Number,
+    price: String,
     //ProductInfo: String,
-    pictureImage: String
+    pictureImage: String,
+    quantity: String
   });
 
   const ProductStyle = mongoose.model('Product', productSchema);
@@ -47,7 +49,7 @@ app.get('/api/products', async (req, res) =>{
 
 //handles delete request
 app.put('/api/products/:id', async (req, res) => {
-    let movie = await ProductStyle.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    let products = await ProductStyle.findByIdAndUpdate(req.params.id, req.body, { new: true });
     res.send(products);
   });
 
@@ -56,19 +58,29 @@ app.delete('/api/products/:id', async (req, res) => {
   
   console.log('Deleting product with ID:', req.params.id);
   const products = await ProductStyle.findByIdAndDelete(req.params.id);
-  res.status(200).send({ message: "Movie deleted successfully", products });
+  res.status(200).send({ message: "product deleted successfully", products });
   
 }
 );
 
+app.get('/api/products/:id', async (req, res) => {
+  let products = await ProductStyle.findById({ _id: req.params.id });
+  res.send(products);
+});
+
+app.put('/api/products/:id', async (req, res) => {
+  let products = await ProductStyle.findByIdAndUpdate(req.params.id, req.body, { new: true });
+  res.send(products);
+});
+
 //handle adding products
 app.post('/api/products', async(req, res) => {
-    const { shoe, price, pictureImage } = req.body; // Expecting these fields from the frontend
-    const newMovie = new ProductStyle({shoe, price, pictureImage});
+    const { shoe, price, pictureImage, quantity } = req.body; // Expecting these fields from the frontend
+    const newMovie = new ProductStyle({shoe, price, pictureImage, quantity});
     await newMovie.save();
 
     // For now, we’ll just log it to the console
-    console.log('Product added:', { shoe, price, pictureImage }); 
+    console.log('Product added:', { shoe, price, pictureImage, quantity }); 
 
     // Responding back to the client
     res.status(201).json({ message: 'Product added successfully!' });

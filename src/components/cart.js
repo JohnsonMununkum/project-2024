@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Product from "./product";
 
-const Cart = () => {
+
+function Cart() {
 
     const [products, setProducts] = useState([]);
     const [data, setData] = useState([]);
@@ -38,7 +39,7 @@ useEffect(() => {
 
 
       return (
-        <div>
+        <div className="cart-page">
           <h2>Bag</h2>
           <Product myProducts={data}  ReloadData={Reload}/>
         </div>

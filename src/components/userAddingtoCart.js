@@ -7,12 +7,14 @@ const UserAddingToCart = () => {
     const [shoe, setShoe] = useState('');
     const [price, setPrice] = useState('');
     const [pictureImage, setPictureImage] = useState('');
+    const [quantity, setQuantity] = useState('');
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
         
         // Prepare the data to be sent to the backend
-        const newProduct = { shoe, price, pictureImage };
+        const newProduct = { shoe, price, pictureImage, quantity };
         console.log(newProduct); // Log the object to ensure it's correct
 
         // Make the POST request to the API
@@ -28,6 +30,7 @@ const UserAddingToCart = () => {
         setShoe('');
         setPrice('');
         setPictureImage('');
+        setQuantity('');
     };
 
     return (
@@ -61,6 +64,16 @@ const UserAddingToCart = () => {
                         className="form-control"
                         value={pictureImage}
                         onChange={(e) => setPictureImage(e.target.value)}
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label>Add Quantity: </label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        value={quantity}
+                        onChange={(e) => setQuantity(e.target.value)}
                     />
                 </div>
 
