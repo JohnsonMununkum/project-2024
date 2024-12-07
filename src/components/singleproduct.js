@@ -29,16 +29,17 @@ const handleDelete = (e) => {
     return (
         <div>
             <Card>
-                <Card.Header><b>{props.myproduct.shoe}</b> <Button className="delete-button" aria-label="Delete" onClick={handleDelete}>&times;</Button>
-                <Link to={"/edit/" + props.myproduct._id} className="btn btn-primary">Edit</Link>
+                <Card.Header><b>{props.myproduct.Title}</b> <Button className="delete-button" aria-label="Delete" onClick={handleDelete}>&times;</Button>
+                <Link to={"/edit/" + props.myproduct._id} className="edit-button">Edit</Link>
+                
 
                 </Card.Header>
                 <Card.Body>
                     <blockquote className="blockquote mb-0">
                         <img src={props.myproduct.pictureImage} alt={props.myproduct.shoe} className="product-image" />
                         <footer>{props.myproduct.price}<br></br>
-                                Quantity: {props.myproduct.quantity}
-                                Product ID: {
+                               {props.myproduct.ProductInfo}  {props.myproduct.quantity}<br></br>
+                                 {
                                     props.myproduct._id
                                 }
                         </footer>

@@ -69,28 +69,24 @@
      margin: "5px 0";
 }
 
-.loginbtn{
-  padding: "10px 20px";
-}
-
 .delete-button {
-  background-color: transparent;  /* Remove default button background */
-  border: none;                   /* Remove border */
-  color: red;                     /* Change the color of the "X" */
-  font-size: 24px;                /* Make the "X" larger */
-  cursor: pointer;                /* Add a pointer cursor */
-  padding: 5px;                   /* Add some padding for clickability */
+  background-color: transparent;  
+  border: none;                 
+  color: red;                    
+  font-size: 24px;              
+  cursor: pointer;                
+  padding: 5px;                   
   margin-left: 10px;
-  margin-right: 10px;              /* Move the button a little to the right */
+  margin-right: 10px;           
 }
 
 .delete-button:hover {
-  color: darkred;                 /* Change the color on hover */
-  transform: scale(1.2);          /* Add a slight zoom effect on hover */
-}
+  color: darkred;               
+  transform: scale(1.2);   
+}     
 
 .delete-button {
-  display: none;  /* Hide by default */
+  display: none;  
 }
 
 /* Show only on the cart page */
@@ -99,8 +95,34 @@
 }
 
 .delete-button:focus {
-  outline: none;  /* Remove the focus outline */
+  outline: none;  
 }
+
+/* Initially hide the edit button */
+.edit-button {
+  display: none; 
+}
+
+/* Show the edit button only on the cart page */
+.cart-page .edit-button {
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; 
+  text-decoration: none; 
+  color: #ffffff;
+  background-color: #007bff; 
+  width: 40px; 
+  height: 40px; 
+  font-size: 16px; 
+  border: none;
+  transition: background-color 0.3s ease; 
+}
+
+/* Hover effect */
+.cart-page .edit-button:hover {
+  background-color: #0056b3; 
+}
+
 
 
 @keyframes App-logo-spin {

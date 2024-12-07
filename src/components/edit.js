@@ -40,7 +40,7 @@ const Edit = () => {
     }
 
     return (
-        <div>
+        <div >
         <h2>Edit your shoe here</h2>
         <form onSubmit={handleSubmit}>
             <div className="form-group">
