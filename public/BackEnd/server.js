@@ -86,13 +86,6 @@ app.post('/api/products', async(req, res) => {
     res.status(201).json({ message: 'Product added successfully!' });
 });
 
-
-        //get products
-     /*   app.get('/api/products', async (req, res) => {
-            const products = await Product.find({});
-            res.json(products);
-        });*/
-
 //error handling to catch server errors
 app.use((err, req, res, next) => {
     console.error(err.stack);
