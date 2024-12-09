@@ -18,7 +18,7 @@ const NavBar = ({ isAuthenticated }) => {
                     <Nav.Link href="/Cart">Cart</Nav.Link>
                     <Nav.Link href="/about">About</Nav.Link>
                     <Nav.Link href="/logout">Logout</Nav.Link>
-                    <Nav.Link href="/userAddingtoCart">UserAddingToCart</Nav.Link>
+                    <Nav.Link href="/userAddingtoCart">Add To Cart</Nav.Link>
                 </Nav>
             </Container>
         </Navbar>
