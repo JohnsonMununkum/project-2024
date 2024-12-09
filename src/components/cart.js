@@ -5,11 +5,11 @@ import { Button } from "react-bootstrap";
 
 
 function Cart() {
-
+  // initalizing variables
     const [products, setProducts] = useState([]);
     const [data, setData] = useState([]);
 
-  // State to manage popup visibility
+  // popup visibility
   const [isPopupVisible, setIsPopupVisible] = useState(false);
 
    // Function to show popup
@@ -55,12 +55,15 @@ useEffect(() => {
       return (
         <div className="cart-page">
           <h2>Bag</h2>
+           {/* getting the data */}
           <Product myProducts={data}  ReloadData={Reload}/>
-          <Button onClick={handleSubmit}>Submit Sourcing Enquiring</Button>
+
+  {/* Button disabled if cart is empty */}
+  <Button onClick={handleSubmit} disabled={data.length === 0}>  Submit Sourcing Enquiry</Button>
 
        {/* Popup  for submitting sourcing enquiry*/}
       {isPopupVisible && (
-        <div className="popup">
+        <div>
           <div>
             <p>Your submission was successful!</p>
              {/* button to close the popup*/}
