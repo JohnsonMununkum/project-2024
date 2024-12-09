@@ -20,8 +20,6 @@ app.use(function(req, res, next) {
 
   //connecting mongoose to server.js
     const mongoose = require('mongoose');
-   // mongoose.connect('mongodb+srv://Admin:Admin@admin.hk6jv.mongodb.net/mydb');
-   //mongoose.connect('mongodb+srv://admin:admin@martinscluster.w5rtkz0.mongodb.net/DB14');
     mongoose.connect('mongodb+srv://g00419319:admin@project-2024.owuzo.mongodb.net/DBproject');
 
   //data model
@@ -63,11 +61,13 @@ app.delete('/api/products/:id', async (req, res) => {
 }
 );
 
+//find product by id
 app.get('/api/products/:id', async (req, res) => {
   let products = await ProductStyle.findById({ _id: req.params.id });
   res.send(products);
 });
 
+//find and update
 app.put('/api/products/:id', async (req, res) => {
   let products = await ProductStyle.findByIdAndUpdate(req.params.id, req.body, { new: true });
   res.send(products);

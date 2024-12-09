@@ -1,8 +1,6 @@
-import { useEffect , useState } from "react";
 import { Card , Button} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 
 //acessing data through props.myporduct
@@ -19,13 +17,6 @@ const handleDelete = (e) => {
             console.error("Error deleting product:", error);
         });
 };
-    const [showModal, setShowModal] = useState(false);
-
-    /*useEffect(() => {
-        console.log("Product", props.myproduct);
-    }, [props.myproduct]);
-
-    */
     return (
         <div>
             <Card>
@@ -47,9 +38,7 @@ const handleDelete = (e) => {
                     </blockquote>
                 </Card.Body>
              
-            </Card>
-             {/* button to click for movie deletetion*/}
-          
+            </Card>          
         </div>
     );
 }

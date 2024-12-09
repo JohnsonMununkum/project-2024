@@ -14,7 +14,6 @@ import Register from './components/register';
 import Logout from './components/logout.js';
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
-//import UserAddingtoCart from './components/userAddingtoCart.js';
 import Cart from './components/cart.js';
 import Edit from './components/edit.js';
 

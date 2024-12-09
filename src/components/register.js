@@ -12,20 +12,20 @@ const Register = () => {
     const handleRegister = (e) => {
         e.preventDefault();
 
-        // have to enter all fields
+        // have to enter all inputs required
         if (!name || !email || !password) {
             setError("All fields are required");
             return;
         }
 
-        //correct email format
+        // used correct email format
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
             setError("Invalid email format");
             return;
         }
 
-        // Save user details to localStorage (Mock Database)
+        // Save user details to localStorage 
         const userDetails = { name, email, password };
         localStorage.setItem("userDetails", JSON.stringify(userDetails));
         setError("");
@@ -35,7 +35,6 @@ const Register = () => {
         navigate("/login"); 
     };
 
-    //inputs for name, email & password
     return (
         <div style={{ margin: "50px auto", maxWidth: "400px", textAlign: "center" }}>
             <h1>Register</h1>

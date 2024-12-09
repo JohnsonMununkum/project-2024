@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 //useNavigate is used to navigate to a page depending on the condition 
 //here say register is successful & login
+
 const Login = ({setIsAuthenticated}) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -11,7 +12,7 @@ const Login = ({setIsAuthenticated}) => {
     const handleLogin = (e) => {
         e.preventDefault();
 
-        // Basic validation
+        // validation to see email correct or not
         if (!email || !password) {
             setError("Email and Password are required");
             return;
@@ -20,7 +21,7 @@ const Login = ({setIsAuthenticated}) => {
         //using localStorage to store the user details
         const userDetails = JSON.parse(localStorage.getItem("userDetails"));
 
-        // Validate email format
+        // see if the format of the amail is correct
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
             setError("Invalid email format");
@@ -33,7 +34,7 @@ const Login = ({setIsAuthenticated}) => {
             return;
         }
 
-        // Authentication successful
+        // set authentication to true and navigate to home if true
         setIsAuthenticated(true);
         setError("");
         navigate("/home");

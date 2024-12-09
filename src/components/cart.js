@@ -22,6 +22,7 @@ function Cart() {
     setIsPopupVisible(false);
   };
 
+  //fetches product from the api
     useEffect(() => {
         axios.get('http://localhost:4000/api/products')
           .then((response) => {

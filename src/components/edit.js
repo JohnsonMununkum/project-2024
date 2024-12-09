@@ -2,16 +2,14 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import Product from "./product";
 
 const Edit = () => {
     const {id} = useParams();
-    const [shoe, setShoe] = useState('');
     const [price, setPrice] = useState('');
-    const [pictureImage, setPictureImage] = useState('');
     const [quantity, setQuantity] = useState('');
     const navigate = useNavigate();
 
+    //fetching data
     useEffect(()=>{
         axios.get('http://localhost:4000/api/products/'+id)
         .then((res)=>{
@@ -23,6 +21,8 @@ const Edit = () => {
     },[id]);
 
 
+    //on submit change price and quantity
+    //sends a put request to api w changes on price on quantity
     const handleSubmit = (e) => {
         e.preventDefault();
         const editedproduct = { price, quantity};

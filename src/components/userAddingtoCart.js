@@ -15,15 +15,15 @@ const UserAddingToCart = () => {
         
         // Prepare the data to be sent to the backend
         const newProduct = { shoe, price, pictureImage, quantity };
-        console.log(newProduct); // Log the object to ensure it's correct
+        console.log(newProduct); 
 
         // Make the POST request to the API
         axios.post('http://localhost:4000/api/products', newProduct)
             .then((res) => {
-                console.log('Product added:', res.data); // Log the response data
+                console.log('Product added:', res.data); 
             })
             .catch((err) => {
-                console.error('There was an error adding the shoe:', err.data); // Log any errors
+                console.error('There was an error adding the shoe:', err.data); 
             });
 
             // Clear form inputs
